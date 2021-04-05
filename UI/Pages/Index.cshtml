@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<table>
+    @foreach (var service in Model.Services)
+    {
+        <tr>
+            <td>@service.Name</td>
+        </tr>
+    }
+</table>
+
+<form method="post" >
+    <div class="row">
+        <div class="col-md-4">
+            <label asp-for="Service.Name"></label>
+            <input asp-for="Service.Name" class="form-control"/>
+            <span class="alert-danger" asp-validation-for="Service.Name"></span>
+        </div>
+    </div>
+    <input type="submit" value="Kaydet"  class="btn btn-primary"/>
+</form>

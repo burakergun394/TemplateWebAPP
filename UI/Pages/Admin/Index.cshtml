@@ -1,0 +1,159 @@
+﻿@page
+@model UI.Pages.Admin.IndexModel
+@{
+    Layout = "_LayoutAdmin";
+}
+
+@section Subheader
+{
+    <h3 class="m-subheader__title m-subheader__title--separator">Genel Bilgiler</h3>
+    <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+            <a href="#" class="m-nav__link m-nav__link--icon">
+                <i class="m-nav__link-icon la la-home"></i>
+            </a>
+        </li>
+        <li class="m-nav__separator">-</li>
+        <li class="m-nav__item">
+            <a href="#" class="m-nav__link">
+                <span class="m-nav__link-text">Genel Bilgiler</span>
+            </a>
+        </li>
+    </ul>
+}
+<div class="m-portlet m-portlet--danger m-portlet--head-solid-bg m-portlet--rounded">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon">
+                    <i class="la la-envelope-o"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    Logo
+                </h3>
+            </div>
+        </div>
+        <div class="m-portlet__head-tools">
+            <ul class="m-portlet__nav">
+                <li class="m-portlet__nav-item"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-portlet__body p-4">
+        <form method="post" enctype="multipart/form-data">>
+            <div class="form-group m-form__group w-100">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <label class="mb-2"><b>Görsel Yükleme</b></label>
+                    <button type="button" class="form-control d-inline mb-2" onclick="openModal(128, 147, imageNew, hiddenImageNew)">Görsel Seç</button>
+                    <img id="imageNew" name="fileLogo" class="text-center" style="width: auto; max-height: 150px; clear:both" />
+                    <input type="hidden" id="hiddenImageNew" />
+                </div>
+            </div>
+            <div class="m-portlet__foot m-portlet__foot--fit d-flex justify-content-center">
+                <div class="m-form__actions">
+                    <button type="submit" class="btn btn-primary rounded" asp-page-handler="Logo" >Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="m-portlet m-portlet--danger m-portlet--head-solid-bg m-portlet--rounded">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon">
+                    <i class="la la-envelope-o"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    Sosyal Medya
+                </h3>
+            </div>
+        </div>
+        <div class="m-portlet__head-tools">
+            <ul class="m-portlet__nav">
+                <li class="m-portlet__nav-item"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-portlet__body p-4">
+        <form method="post">
+            <div class="form-group m-form__group w-100 row pl-3">
+                <div class="col-md-4">
+                    <label asp-for="Constant.Instagram" class="text-muted">Instagram</label>
+                    <input asp-for="Constant.Instagram" type="text" class="form-control m-input" placeholder="Instagram Kullanıcı Adı" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Constant.Facebook" class="text-muted">Facebook</label>
+                    <input asp-for="Constant.Facebook" type="text" class="form-control m-input" placeholder="Facebook Kullanıcı Adı" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Constant.Twitter" class="text-muted">Twitter</label>
+                    <input asp-for="Constant.Twitter" type="text" class="form-control m-input" placeholder="Twitter Kullanıcı Adı" />
+                </div>
+            </div>
+            <div class="m-portlet__foot m-portlet__foot--fit d-flex justify-content-center">
+                <div class="m-form__actions">
+                    <button type="submit" class="btn btn-primary rounded " asp-page-handler="SocialMedia">Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="m-portlet m-portlet--danger m-portlet--head-solid-bg m-portlet--rounded">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon">
+                    <i class="la la-envelope-o"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    İletişim
+                </h3>
+            </div>
+        </div>
+        <div class="m-portlet__head-tools">
+            <ul class="m-portlet__nav">
+                <li class="m-portlet__nav-item"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="m-portlet__body p-4">
+        <div class="form-group m-form__group w-100 row pl-3">
+            <div class="col-md-6">
+                <label class="text-muted" for="textTelephone">Telefon</label>
+                <input type="text" class="form-control m-input" id="textTelephone" placeholder="Telefon" runat="server" />
+            </div>
+            <div class="col-md-6">
+                <label class="text-muted" for="textFax">Faks</label>
+                <input type="text" class="form-control m-input" id="textFax" placeholder="Faks" runat="server" />
+            </div>
+            <div class="col-md-12 mt-2">
+                <label class="text-muted" for="textMail">Email</label>
+                <input type="text" class="form-control m-input" id="textMail" placeholder="E-mail" runat="server" />
+            </div>
+            <div class="col-md-12 mt-2">
+                <label class="text-muted" for="textAddres">Adres</label>
+                <input type="text" class="form-control m-input" id="textAddres" placeholder="Adres" runat="server" />
+            </div>
+        </div>
+        <div class="form-group m-form__group w-100 pl-3">
+            <label for="textGoogleAddress" class="text-muted">Google Harita Adresi</label>
+            <input type="text" class="form-control m-input" id="textGoogleAddress" placeholder="Google Harita Adresi" runat="server" />
+            <iframe id="IFrameGoogleMap" runat="server" src="" width="100%" height="300" frameborder="0" style="border: 0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="form-group m-form__group w-100">
+            <label for="textSeoTitle" class="text-muted">Seo Title</label><br />
+            <textarea id="textSeoTitle" runat="server" class="form-control m-input" placeholder="Seo Title"></textarea>
+        </div>
+        <div class="form-group m-form__group w-100 ">
+            <label class="text-muted" for="textSeoDescription">Seo Description</label>
+            <input type="text" class="form-control m-input" id="textSeoDescription" placeholder="Seo Description" runat="server" />
+        </div>
+        <div class="m-portlet__foot m-portlet__foot--fit d-flex justify-content-center">
+            <div class="m-form__actions">
+                <input type="hidden" id="hiddenFieldId" />
+                <button type="submit" class="btn btn-primary rounded" id="buttonContactUpsert">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
