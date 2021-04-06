@@ -30,7 +30,7 @@ namespace Business.Mapping.Automapper
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile<ServiceProfile>();
+                cfg.AddProfile<MapperProfile>();
             });
 
             return config;

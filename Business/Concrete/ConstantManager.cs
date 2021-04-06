@@ -10,6 +10,7 @@ using Core.Utilities.Results;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 
 namespace Business.Concrete
 {
@@ -33,6 +34,17 @@ namespace Business.Concrete
             }
 
             return new SuccessDataResult<Constant>(_constantDal.GetAll().SingleOrDefault());
+        }
+
+        public IDataResult<LogoDto> GetLogo()
+        {
+            var result = _constantDal.GetAll().SingleOrDefault();
+            var logo = Mapper.Map<LogoDto>(result);
+
+            if (logo == null) 
+                return new ErrorDataResult<LogoDto>(Messages.NotFound);
+
+            return new SuccessDataResult<LogoDto>(logo);
         }
 
         private int CheckIfCountZero()

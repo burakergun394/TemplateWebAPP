@@ -9,6 +9,7 @@ namespace Core.Utilities.Results
     public interface IResult
     {
         List<String> Messages { get; }
+        String Message { get; } 
         bool IsSuccess { get; }
     }
 }

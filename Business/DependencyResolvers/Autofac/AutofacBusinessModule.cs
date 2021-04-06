@@ -22,6 +22,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<EfConstantDal>().As<IConstantDal>().SingleInstance();
             builder.RegisterType<ConstantManager>().As<IConstantService>().SingleInstance();
+
+            builder.RegisterType<EfGeneralInformationDal>().As<IGeneralInformationDal>().SingleInstance();
+            builder.RegisterType<GeneralInformationManager>().As<IGeneralInformationService>().SingleInstance();
         }
     }
 }

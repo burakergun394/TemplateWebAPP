@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities;
 
-namespace Core.Utilities.Mapping.Automapper
+namespace Entities.Dtos
 {
-    public class ObjectMapper
+    public class LogoDto: IDto
     {
-       
+        public string LogoPath { get; set; }
     }
 }

@@ -45,13 +45,13 @@
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <label class="mb-2"><b>Görsel Yükleme</b></label>
                     <button type="button" class="form-control d-inline mb-2" onclick="openModal(128, 147, imageNew, hiddenImageNew)">Görsel Seç</button>
-                    <img id="imageNew" name="fileLogo" class="text-center" style="width: auto; max-height: 150px; clear:both" />
-                    <input type="hidden" id="hiddenImageNew" />
+                    <img id="imageNew" src="@Model.GeneralInformation.LogoPath" class="text-center" style="width: auto; max-height: 150px; clear:both" />
+                    <input type="hidden" name="hiddenImageNew" id="hiddenImageNew" />
                 </div>
             </div>
             <div class="m-portlet__foot m-portlet__foot--fit d-flex justify-content-center">
                 <div class="m-form__actions">
-                    <button type="submit" class="btn btn-primary rounded" asp-page-handler="Logo" >Kaydet</button>
+                    <button type="submit" class="btn btn-primary rounded" asp-page-handler="Logo">Kaydet</button>
                 </div>
             </div>
         </form>
@@ -79,16 +79,16 @@
         <form method="post">
             <div class="form-group m-form__group w-100 row pl-3">
                 <div class="col-md-4">
-                    <label asp-for="Constant.Instagram" class="text-muted">Instagram</label>
-                    <input asp-for="Constant.Instagram" type="text" class="form-control m-input" placeholder="Instagram Kullanıcı Adı" />
+                    <label asp-for="SocialMediaDto.Instagram" class="text-muted">Instagram</label>
+                    <input asp-for="SocialMediaDto.Instagram" type="text" class="form-control m-input" placeholder="Instagram Kullanıcı Adı" />
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="Constant.Facebook" class="text-muted">Facebook</label>
-                    <input asp-for="Constant.Facebook" type="text" class="form-control m-input" placeholder="Facebook Kullanıcı Adı" />
+                    <label asp-for="SocialMediaDto.Facebook" class="text-muted">Facebook</label>
+                    <input asp-for="SocialMediaDto.Facebook" type="text" class="form-control m-input" placeholder="Facebook Kullanıcı Adı" />
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="Constant.Twitter" class="text-muted">Twitter</label>
-                    <input asp-for="Constant.Twitter" type="text" class="form-control m-input" placeholder="Twitter Kullanıcı Adı" />
+                    <label asp-for="SocialMediaDto.Twitter" class="text-muted">Twitter</label>
+                    <input asp-for="SocialMediaDto.Twitter" type="text" class="form-control m-input" placeholder="Twitter Kullanıcı Adı" />
                 </div>
             </div>
             <div class="m-portlet__foot m-portlet__foot--fit d-flex justify-content-center">

@@ -15,7 +15,13 @@ namespace Core.Utilities.Results.Concrete
         public ErrorDataResult(T data, List<string> messages) : base(data, messages, false)
         {
         }
+        public ErrorDataResult(T data, string message) : base(data, message, false)
+        {
+        }
         public ErrorDataResult(List<string> messages) : base(default, messages, false)
+        {
+        }
+        public ErrorDataResult(string message) : base(default, message, false)
         {
         }
         public ErrorDataResult() : base(default, false)

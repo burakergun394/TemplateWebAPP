@@ -5,7 +5,7 @@
 }
 
 <table>
-    @foreach (var service in Model.Services)
+    @foreach (var service in Model.HomeModel.Services)
     {
         <tr>
             <td>@service.Name</td>
@@ -16,9 +16,9 @@
 <form method="post" >
     <div class="row">
         <div class="col-md-4">
-            <label asp-for="Service.Name"></label>
-            <input asp-for="Service.Name" class="form-control"/>
-            <span class="alert-danger" asp-validation-for="Service.Name"></span>
+            <label asp-for="ServiceDto.Name"></label>
+            <input asp-for="ServiceDto.Name" class="form-control"/>
+            <span class="alert-danger" asp-validation-for="ServiceDto.Name"></span>
         </div>
     </div>
     <input type="submit" value="Kaydet"  class="btn btn-primary"/>

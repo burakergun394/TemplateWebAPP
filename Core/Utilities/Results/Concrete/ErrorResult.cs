@@ -15,5 +15,8 @@ namespace Core.Utilities.Results.Concrete
         public ErrorResult(List<string> messages) : base(messages, false)
         {
         }
+        public ErrorResult(string message) : base(message, false)
+        {
+        }
     }
 }

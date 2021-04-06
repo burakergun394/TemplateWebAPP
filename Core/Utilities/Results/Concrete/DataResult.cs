@@ -18,7 +18,10 @@ namespace Core.Utilities.Results.Concrete
         {
             Data = data;
         }
+        public DataResult(T data, string messages, bool isSuccess) : base(messages, isSuccess)
+        {
+            Data = data;
+        }
 
-       
     }
 }

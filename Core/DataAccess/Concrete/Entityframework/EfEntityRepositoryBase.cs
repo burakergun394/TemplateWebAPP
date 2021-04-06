@@ -37,5 +37,23 @@ namespace Core.DataAccess.Concrete.Entityframework
                 return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
             }
         }
+
+        public void InsertOrUpdate(TEntity entity)
+        {
+            //using (var context = new TContext())
+            //{
+            //    context.Entry(entity).State = entity.Id
+            //}
+        }
+
+        public void Update(TEntity entity)
+        {
+            using (var context = new TContext())
+            {
+                var updatedEntiy = context.Entry(entity);
+                updatedEntiy.State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 }

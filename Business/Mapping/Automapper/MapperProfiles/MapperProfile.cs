@@ -9,11 +9,16 @@ using Entities.Dtos;
 
 namespace Business.Mapping.Automapper.MapperProfiles
 {
-    public class ServiceProfile :Profile
+    public class MapperProfile :Profile
     {
-        public ServiceProfile()
+        public MapperProfile()
         {
             CreateMap<Service, ServiceDto>().ReverseMap();
+
+            CreateMap<Constant, LogoDto>().ReverseMap();
+
+            CreateMap<GeneralInformation, LogoDto>().ReverseMap();
+            CreateMap<GeneralInformation, SocialMediaDto>().ReverseMap();
         }
     }
 }

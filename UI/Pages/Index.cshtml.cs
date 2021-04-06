@@ -8,17 +8,22 @@ using System.Threading.Tasks;
 using Business.Abstract;
 using Entities.Concrete;
 using Entities.Dtos;
+using UI.Models;
 
 namespace UI.Pages
 {
-    public partial class IndexModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly IServiceService _serviceService;
+
         public List<Service> Services { get; set; }
 
+        public HomeModel HomeModel;
+
         [BindProperty]
-        public Service Service { get; set; }
+        public ServiceDto ServiceDto { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger, IServiceService serviceService)
         {
             _logger = logger;
@@ -34,16 +39,28 @@ namespace UI.Pages
 
             }else if (serviceList.IsSuccess)
             {
-                Services = serviceList.Data;
+                HomeModel = new HomeModel
+                {
+                    Services = serviceList.Data
+                };
             }
         }
 
         public IActionResult OnPost()
         {
-            var service = Service;
+            var result = _serviceService.Add(ServiceDto);
+
+            if (!result.IsSuccess)
+            {
+                foreach (var error in result.Messages)
+                {
+                    ModelState.AddModelError("", error);
+                }
+            }
 
             if (!ModelState.IsValid)
             {
+               
                 return Page();
             }
 

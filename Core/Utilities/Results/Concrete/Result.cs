@@ -9,6 +9,7 @@ namespace Core.Utilities.Results.Concrete
     public class Result: IResult
     {
         public List<string> Messages { get; }
+        public string Message { get; set; }
         public bool IsSuccess { get; }
 
         public Result(bool isSuccess)
@@ -19,6 +20,11 @@ namespace Core.Utilities.Results.Concrete
         public Result(List<string> messages, bool isSuccess): this(isSuccess)
         {
             Messages = messages;
+        }
+
+        public Result(string message, bool isSuccess) : this(isSuccess)
+        {
+            Message = message;
         }
     }
 }
